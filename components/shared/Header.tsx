@@ -2,6 +2,7 @@ import { COLORS } from '@/styles/colors'
 import { Box } from '@mui/material'
 import React from 'react'
 import Logo from './Logo'
+import SearchBar from './SearchBar'
 
 const Header = () => {
   return (
@@ -14,6 +15,7 @@ const Header = () => {
     >
         <Box sx={{ display: "flex"}}>
             <Logo />
+            <SearchBar />
         </Box>
     </Box>
   )
