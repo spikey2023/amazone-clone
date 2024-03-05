@@ -13,7 +13,12 @@ const Header = () => {
         flexDirection: "column",
         }}
     >
-        <Box sx={{ display: "flex"}}>
+        <Box sx={{ 
+            display: "flex",
+            padding:"1rem",
+            justifyContent:"space-between",
+            }}
+        >
             <Logo />
             <SearchBar />
         </Box>
