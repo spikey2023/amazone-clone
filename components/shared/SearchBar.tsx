@@ -29,7 +29,7 @@ const SearchBar = () => {
             borderRadius:"0 0.25rem 0.25rem 0", 
           
             "&:hover":{
-              backgroundColor:COLORS.darkOrange,
+              backgroundColor:COLORS.orange,
             }
           }} 
         aria-label="search">
