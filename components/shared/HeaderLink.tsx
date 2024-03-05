@@ -17,7 +17,7 @@ const HeaderLink = ({
         style={{
             color: COLORS.white,
             textDecoration: "none",
-            margin: "0.5rem", 
+            margin: "0.35rem", 
             ...style,
         }}
     >

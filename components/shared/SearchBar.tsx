@@ -11,11 +11,9 @@ const SearchBar = () => {
       sx={{ 
         display: 'flex', 
         alignItems: 'center', 
-        width: "80vw" 
+        width: "78vw" 
       }}
     >
-      <IconButton sx={{ p: '10px' }} aria-label="menu">
-      </IconButton>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search Amazon"
@@ -24,7 +22,7 @@ const SearchBar = () => {
       <IconButton 
         type="button" 
         sx={{ 
-            padding: '0.625rem', 
+            padding: '0.35rem', 
             backgroundColor:COLORS.paleOrange , 
             borderRadius:"0 0.25rem 0.25rem 0", 
           
