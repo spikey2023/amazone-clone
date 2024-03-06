@@ -1,9 +1,9 @@
 import React from 'react'
 
-const SearchReasults = ({products }: {products: any[] }) => {
-  return (
-    <div>SearchReasults</div>
+const SearchResults = ({products }: {products: any[] }) => {
+    return (
+    <div>SearchResults</div>
   )
 }
 
-export default SearchReasults
+export default SearchResults
