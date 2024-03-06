@@ -1,8 +1,9 @@
+"use client"
 import { IconButton, InputBase, Paper } from '@mui/material'
 import React, { FormEvent, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import { COLORS } from '@/styles/colors';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 
 const SearchBar = () => {
@@ -29,9 +30,11 @@ const SearchBar = () => {
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search Amazon"
         inputProps={{ 'aria-label': 'search amazon' }}
+        //query value will be pushed to router
+        onChange={(e)=> {setQuery(e.target.value)}}
       />
       <IconButton 
-        type="button" 
+        type="submit" 
         sx={{ 
             padding: '0.35rem', 
             backgroundColor:COLORS.paleOrange , 
