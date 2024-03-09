@@ -1,10 +1,11 @@
 import { supabase } from "@/lib/supabase/products"
+import { Product } from "@/types/supabase";
 import { useState } from "react"
 
 export const useSupabase = () => {
-    const [products, setProducts] = useState<any[]>([]);
-    const [filteredProducts, setFilteredProducts] = useState<any[]>([])
-    const [singleProduct, setSingleProduct] = useState<any>(0)
+    const [products, setProducts] = useState<Product[]>([]);
+    const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
+    const [singleProduct, setSingleProduct] = useState<Product[]>([])
     
 //get all products from supabase
     const getProducts = async () => {

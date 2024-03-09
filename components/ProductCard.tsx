@@ -5,8 +5,9 @@ import Link from 'next/link'
 import React from 'react'
 import Ratings from './shared/Ratings'
 import { useRouter } from 'next/navigation'
+import { Product } from '@/types/supabase'
 
-const ProductCard = ({product}: {product:any}) => {
+const ProductCard = ({product}: {product:Product}) => {
     //initialize next router
     const router =  useRouter()
 
