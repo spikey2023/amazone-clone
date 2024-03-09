@@ -5,6 +5,7 @@ import React from 'react'
 import CustomHr from './shared/CustomHr'
 import { COLORS } from '@/styles/colors'
 import ProductLinkText from './shared/ProductLinkText'
+import CustomBox from './shared/CustomBox'
 
 const ProductDetails = ({product}:{product:any}) => {
 
@@ -42,8 +43,18 @@ const ProductDetails = ({product}:{product:any}) => {
                             </Typography>
                             <Typography>{prod.description}</Typography>
                         </Box>
-                        <Box> 
-                            <Image alt="prime-logo" src="/prime-logo.png" height={30} width={50}/>
+                        <Box sx={{marginLeft:"2rem"}}> 
+                            <CustomBox sx={{width:"12rem"}}>
+                                <Image alt="prime-logo" src="/prime-logo.png" height={30} width={50}/>
+                                <Typography sx={{fontWeight:700}}>
+                                    Enjoy fast, free delivery, exclusive deals, and award winning movies &
+                                    TB shows with Prime
+                                </Typography>
+                                <Typography>
+                                    <span style={{color: COLORS.teal}}>Try Prime </span> 
+                                    and start saving today with <span style={{fontWeight:700}}>fast, free delivery </span>
+                                </Typography>
+                            </CustomBox>
                         </Box>
                      </Box>
                      )
