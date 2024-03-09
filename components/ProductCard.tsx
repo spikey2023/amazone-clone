@@ -4,8 +4,19 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Ratings from './shared/Ratings'
+import { useRouter } from 'next/navigation'
 
 const ProductCard = ({product}: {product:any}) => {
+    //initialize next router
+    const router =  useRouter()
+
+    //onClick function to handle what happens when productCard is clicked
+    const selectProduct = (e:any) => {
+        e.preventDefault()
+        //routes to product page
+        router.push(`/product/${product.id}`)
+
+    }
   return (
     <Box 
         sx={{
@@ -18,6 +29,8 @@ const ProductCard = ({product}: {product:any}) => {
             flexDirection: "column",
             justifyContent:"space-between",
             }}
+
+        onClick={selectProduct}
     >
         <Image 
             alt={product.title} 
