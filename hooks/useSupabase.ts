@@ -3,7 +3,8 @@ import { useState } from "react"
 
 export const useSupabase = () => {
     const [products, setProducts] = useState<any[]>([]);
-    const [filteredProducts, setFilteredProducts] = useState<any[]>([]) 
+    const [filteredProducts, setFilteredProducts] = useState<any[]>([])
+    const [singleProduct, setSingleProduct] = useState<any>(0)
     
 //get all products from supabase
     const getProducts = async () => {
@@ -31,5 +32,20 @@ export const useSupabase = () => {
         if(error) console.log(error)
     }
 
-    return { products, getProducts, filteredProducts, getFilteredProducts }
+
+//Single Product GET requeust from supabase
+    const getSingleProduct = async (id:number) => {
+        const { data, error } = await supabase
+            .from("products")
+            .select("*")
+            .eq("id", id)
+            if (data) {
+                setSingleProduct(data);
+            }
+            if(error) console.log(error)
+        }
+    
+
+
+    return { products, getProducts, filteredProducts, getFilteredProducts, singleProduct, getSingleProduct }
 }
