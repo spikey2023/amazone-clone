@@ -1,5 +1,5 @@
 "use client"
-import SearchResults from '@/components/shared/SearchReasults'
+import SearchResults from '@/components/SearchResults'
 import { useSupabase } from '@/hooks/useSupabase'
 import { Container } from '@mui/material'
 import { useParams } from 'next/navigation'
