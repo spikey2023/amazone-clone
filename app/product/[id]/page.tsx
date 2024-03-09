@@ -1,5 +1,8 @@
 'use client'
+import ProductDetails from '@/components/ProductDetails'
 import { useSupabase } from '@/hooks/useSupabase'
+import { COLORS } from '@/styles/colors'
+import { Box, Container } from '@mui/material'
 import { useParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 
@@ -15,7 +18,11 @@ const ProductPage = () => {
     }, [getSingleProduct, id])
 
   return (
-    <div>ProductPage </div>
+    <Box sx={{backgroundColor: COLORS.white}}> 
+      <Container maxWidth="xl"> 
+        <ProductDetails product={singleProduct}/> 
+      </Container>
+    </Box>
   )
 }
 
