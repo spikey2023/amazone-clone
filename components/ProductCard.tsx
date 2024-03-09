@@ -1,7 +1,9 @@
 import { COLORS } from '@/styles/colors'
 import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
+import Ratings from './shared/Ratings'
 
 const ProductCard = ({product}: {product:any}) => {
   return (
@@ -14,24 +16,30 @@ const ProductCard = ({product}: {product:any}) => {
             padding: "1rem",
             display: "flex",
             flexDirection: "column",
-            justifyContent:"space-between"
+            justifyContent:"space-between",
             }}
     >
         <Image 
             alt={product.title} 
             src={product.image}
-            width={200}
+            width={225}
             height={250}  
         />
+        <Link href={`/product/${product.id}`} style={{textDecoration:"none"}}>
         <Typography 
-            variant='h2' 
             sx={{
-                fontWeight:500,}}>
-            {product.title.substring(0,15)}... 
+                fontWeight: 100,
+                fontSize: "1.15rem",
+                color: COLORS.black,
+                }}
+            >
+            {product.title.substring(0,18)}... 
         </Typography>
-        <Typography >
-            {product.price}
+        <Ratings rating={product.rating}/>
+        <Typography variant='h2' sx={{fontWeight:700, color: COLORS.black}} >
+            ${product.price}
         </Typography>
+        </Link>
     </Box>
   )
 }
