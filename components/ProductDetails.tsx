@@ -21,7 +21,7 @@ const ProductDetails = ({product}:{product:any[]}) => {
     },[])
 
   return (
-    <Box>
+    <Box sx={{display:"flex" , flexDirection: "column",}}>
         {product.map((prod : any)=> {
                 return (
                     <Box 
@@ -59,7 +59,7 @@ const ProductDetails = ({product}:{product:any[]}) => {
                                 <Image alt="prime-logo" src="/prime-logo.png" height={30} width={50}/>
                                 <Typography sx={{fontWeight:700}}>
                                     Enjoy fast, free delivery, exclusive deals, and award winning movies &
-                                    TB shows with Prime.
+                                    TV shows with Prime.
                                 </Typography>
                                 <Typography>
                                     <span style={{color: COLORS.teal}}>Try Prime </span> 
@@ -94,13 +94,39 @@ const ProductDetails = ({product}:{product:any[]}) => {
                                         }
                                     }}
                                     >Buy Now </CustomButton>
+                                <Typography 
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                            }}>
+                                    <span>Ships from</span>
+                                    <ProductLinkText>Amazon</ProductLinkText>
+                                </Typography>
+                                <Typography 
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                            }}>
+                                    <span>Returns</span>
+                                    <ProductLinkText>Eligible for Returns</ProductLinkText>
+                                </Typography>
+                                <Typography 
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                            }}>
+                                    <span>Payment </span>
+                                    <ProductLinkText>Secure tansaction</ProductLinkText>
+                                </Typography>
                                 
                             </CustomBox>
                         </Box>
+                        
                      </Box>
                      )
             })}
-            
+            <CustomHr />
+                        <Typography variant='h2'>Buy it with</Typography>
     </Box>
   )
 }
