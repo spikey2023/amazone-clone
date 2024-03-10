@@ -8,12 +8,16 @@ import ProductLinkText from './shared/ProductLinkText'
 import CustomBox from './shared/CustomBox'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CustomButton from './shared/CustomButton'
+import { useRouter } from 'next/navigation'
 
 const ProductDetails = ({product}:{product:any[]}) => {
     const [hours, setHours] = useState(0)
     const [minutes, setMinutes] = useState(1)
-    //generating a random number and multiplying it by max
+    const router = useRouter()
+    //generating a random number and multiplying it by max for delivery time
     const getRandomNumber = (max : number) => Math.floor(Math.random() * max)
+
+
 
     useEffect(()=>{
         setHours(getRandomNumber(9))
@@ -85,8 +89,9 @@ const ProductDetails = ({product}:{product:any[]}) => {
                                 <Typography sx={{color: COLORS.red}}>
                                     Only {prod.quantity} left in stock - order soon. 
                                 </Typography>
-                                <CustomButton>Add to Cart </CustomButton>
-                                <CustomButton 
+                                <CustomButton onClick={()=> router.push("/cart")}>Add to Cart </CustomButton>
+                                <CustomButton
+                                    onClick={()=> router.push("/checkout") }
                                     sx={{
                                         backgroundColor: COLORS.orange,
                                         "&:hover": {

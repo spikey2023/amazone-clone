@@ -2,10 +2,15 @@ import { COLORS } from '@/styles/colors'
 import { Button, SxProps, Theme } from '@mui/material'
 import React from 'react'
 
-const CustomButton = ({children, sx}: {children: React.ReactNode; sx?: SxProps<Theme>
+const CustomButton = ({
+  children, sx, onClick
+}: {
+  children: React.ReactNode; 
+  sx?: SxProps<Theme>;
+  onClick:() => void;
 }) => {
   return (
-    <Button 
+    <Button
       sx={{
         borderRadius: "1rem", 
         backgroundColor: COLORS.yellow, 
@@ -16,8 +21,8 @@ const CustomButton = ({children, sx}: {children: React.ReactNode; sx?: SxProps<T
           backgroundColor: COLORS.darkYellow,
         },
         ...sx,
-        
       }}
+      onClick={onClick}
      > {children} 
     </Button>
   )
