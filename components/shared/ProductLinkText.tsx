@@ -2,12 +2,11 @@ import { COLORS } from '@/styles/colors'
 
 import React from 'react'
 
-const ProductLinkText = ({children, style}: {
+const ProductLinkText = ({children}: {
     children:React.ReactNode
-    style?:React.CSSProperties
     }) => {
   return (
-    <span style={{color:COLORS.teal, ...style}}>{children}</span>
+    <span style={{color:COLORS.teal, fontSize:"0.875rem"}}>{children}</span>
   )
 }
 

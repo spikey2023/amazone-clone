@@ -11,4 +11,5 @@ export const COLORS = {
     yellow : "#ffd814",
     orange : "#f3a946",
     black : "#000000",
+    darkYellow: "#f5ca00",
 }

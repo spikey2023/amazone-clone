@@ -16,6 +16,7 @@ export type Database = {
           id: number
           image: string | null
           price: number | null
+          quantity: number
           rating: Json | null
           title: string | null
         }
@@ -25,6 +26,7 @@ export type Database = {
           id: number
           image?: string | null
           price?: number | null
+          quantity?: number
           rating?: Json | null
           title?: string | null
         }
@@ -34,6 +36,7 @@ export type Database = {
           id?: number
           image?: string | null
           price?: number | null
+          quantity?: number
           rating?: Json | null
           title?: string | null
         }
