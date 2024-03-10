@@ -9,11 +9,16 @@ import CustomBox from './shared/CustomBox'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CustomButton from './shared/CustomButton'
 import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/hooks/redux'
+import { addToCart } from '@/store/cartSlice'
 
 const ProductDetails = ({product}:{product:any[]}) => {
     const [hours, setHours] = useState(0)
     const [minutes, setMinutes] = useState(1)
     const router = useRouter()
+    //dispatch reducer
+    const dispatch = useAppDispatch()
+
     //generating a random number and multiplying it by max for delivery time
     const getRandomNumber = (max : number) => Math.floor(Math.random() * max)
 
@@ -89,7 +94,14 @@ const ProductDetails = ({product}:{product:any[]}) => {
                                 <Typography sx={{color: COLORS.red}}>
                                     Only {prod.quantity} left in stock - order soon. 
                                 </Typography>
-                                <CustomButton onClick={()=> router.push("/cart")}>Add to Cart </CustomButton>
+                                <CustomButton onClick={()=> {
+                                    //dispatch the product to the cart page
+                                    dispatch(addToCart(prod))
+                                    router.push("/cart")
+                                }
+                            }
+                            >
+                                    Add to Cart </CustomButton>
                                 <CustomButton
                                     onClick={()=> router.push("/checkout") }
                                     sx={{
