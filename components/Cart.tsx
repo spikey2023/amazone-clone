@@ -1,8 +1,8 @@
 'use client'
 import { Product, Products } from '@/types/supabase'
-import { Box, Typography } from '@mui/material'
-import { useAppSelector } from '@/hooks/redux'
-import { getCart } from '@/store/cartSlice'
+import { Box, Button, Typography } from '@mui/material'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
+import { clearCart, getCart } from '@/store/cartSlice'
 
 import React, { useState } from 'react'
 import { COLORS } from '@/styles/colors'
@@ -15,13 +15,13 @@ import { useRouter } from 'next/navigation'
 import Subtotal from './shared/Subtotal'
 
 const Cart = () => {
-    
+    const dispatch = useAppDispatch()
     const cart = useAppSelector(getCart)
     const router  = useRouter()
 
     let total = 0
 
-    cart.forEach((item: Product ) => (total = total+item.price))
+    cart.forEach((item: Product ) => (total = total + item.price))
  
 
   return (
@@ -49,6 +49,7 @@ const Cart = () => {
             return <CartItem key={item.id} item={item} />
             })}
             <Subtotal items={cart.length} price={total} sx={{textAlign:"right"}} />
+            <Button onClick={()=> {dispatch(clearCart())}}> Clear Cart</Button>
         </Box>
         <Box 
             sx={{

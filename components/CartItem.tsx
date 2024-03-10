@@ -1,12 +1,16 @@
 import { COLORS } from '@/styles/colors'
 import { Product } from '@/types/supabase'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import ProductLinkText from './shared/ProductLinkText'
 import CustomHr from './shared/CustomHr'
+import { useAppDispatch } from '@/hooks/redux'
+import { removeItem } from '@/store/cartSlice'
 
 const CartItem = ({item}:{item: Product}) => {
+    const dispatch = useAppDispatch()
+
   return (
     <Box>
     <Box sx={{display: "flex", justifyContent: "space-between"}}> 
@@ -22,7 +26,10 @@ const CartItem = ({item}:{item: Product}) => {
             <Typography>
                 Eligible for FREE Shipping & FREE Returns
             </Typography>
-            <ProductLinkText>Delete</ProductLinkText>          
+            <Button
+                onClick={()=>{dispatch(removeItem(item))}}>
+                DELETE
+                </Button>        
         </Box>
         </Box>
         <Typography sx={{ fontSize: "1.25rem", fontWeight: 700}}>
