@@ -21,7 +21,7 @@ const Cart = () => {
 
     let total = 0
 
-    cart.forEach((item: Product ) => (total = total + item.price))
+    cart.forEach((item: Product ) => (total = total + Math.round(item.price)))
  
 
   return (
