@@ -29,7 +29,7 @@ const Checkout = () => {
     return (
         <Box>
             <CheckoutHeader items={cart.length}/>
-            <Container sx={{display: "flex"}}>
+            <Container sx={{display: "flex", marginTop:"0.5rem", marginRight: "0"}}>
                 <Box sx={{width:"50vw"}}>
                 <CheckoutSection number={1} title="Shipping Address">
                     <Typography>Sherlock Holmes <br/>221 Baker St <br/>London <br/>United Kingodom</Typography>
@@ -66,7 +66,11 @@ const Checkout = () => {
                    </CustomBox>
                 </CheckoutSection>
                 </Box>
-                <OrderSummary subtotal={subtotal} tax={totalTax.toFixed(2)} total={orderTotal.toFixed(2)} />
+                <OrderSummary 
+                    subtotal={subtotal} 
+                    tax={totalTax.toFixed(2)} 
+                    total={orderTotal.toFixed(2)} 
+                />
             </Container>
         </Box>
     )

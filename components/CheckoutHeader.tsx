@@ -11,7 +11,7 @@ const CheckoutHeader = ({items}: {items:number}) => {
                 <Container sx={{ display: "flex", justifyContent: "space-between", padding: "2rem 0 0.5rem 0" }}>
                     <Logo dark />
                     <Typography variant='h1' sx={{ fontSize: "1.5rem" }}>
-                        Checkout (<span style={{color : COLORS.teal}}> {items}  items</span>)
+                        Checkout (<span style={{color : COLORS.teal}}>{items} items</span>)
                         </Typography>
                     <LockIcon />
                 </Container>
