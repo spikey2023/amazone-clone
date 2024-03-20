@@ -6,6 +6,7 @@ export const useSupabase = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
     const [singleProduct, setSingleProduct] = useState<Product[]>([])
+    const [jewelry, setJewelry] = useState <Product[]>([])
     
 //get all products from supabase
     const getProducts = async () => {
@@ -46,7 +47,28 @@ export const useSupabase = () => {
             if(error) console.log(error)
         }
     
+//get Product categories from supabase
+const getJewelry = async () => {
+    const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .ilike("category", "jewelry")
+        
+        if (data) {
+            setSingleProduct(data);
+        }
+        if(error) console.log(error)
+    }
 
 
-    return { products, getProducts, filteredProducts, getFilteredProducts, singleProduct, getSingleProduct }
+    return { 
+        products, 
+        getProducts, 
+        filteredProducts, 
+        getFilteredProducts, 
+        singleProduct, 
+        getSingleProduct,
+        jewelry,
+        getJewelry,
+    }   
 }

@@ -4,7 +4,7 @@ import { COLORS } from "./colors";
 
 const theme = createTheme({
   palette: {
-    background: {default: COLORS.lightGray},
+    background: { default: COLORS.lightGray },
     mode: "light",
   },
   typography: {
@@ -27,5 +27,6 @@ const theme = createTheme({
     },
   },
 });
+
 
 export default theme;
