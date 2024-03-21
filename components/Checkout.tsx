@@ -9,13 +9,15 @@ import CustomBox from './shared/CustomBox'
 import CustomButton from './shared/CustomButton'
 import ProductLinkText from './shared/ProductLinkText'
 import CheckoutItem from './CheckoutItem'
-import { useAppSelector } from '@/hooks/redux'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { getCart } from '@/store/cartSlice'
 import { Product } from '@/types/supabase'
 import OrderSummary from './OrderSummary'
+import { addToOrders } from '@/store/ordersSlice'
 
 const Checkout = () => {
     const cart = useAppSelector(getCart)
+    const dispatch =  useAppDispatch()
     
     //tax calculation and order total
     let subtotal = 0
@@ -53,7 +55,17 @@ const Checkout = () => {
                         })}
 
                     <CustomBox sx={{display:"flex", marginLeft:"3rem"}}>
-                        <CustomButton onClick={()=> console.log("clicked")} sx={{width:"12rem", marginRight:"1rem"}}>
+                        <CustomButton 
+                            onClick={()=> 
+                                dispatch(
+                                    addToOrders({ 
+                                        items: cart, 
+                                        totalPrice: orderTotal, 
+                                        date:new Date()
+                                    })
+                                    )
+                                } 
+                            sx={{width:"12rem", marginRight:"1rem"}}>
                             Place Order</CustomButton>
                         <Box>
                         <Typography variant='h3' sx={{color:COLORS.red}}>
