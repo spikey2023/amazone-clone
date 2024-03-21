@@ -9,18 +9,34 @@ import WideCard from './shared/WideCard'
 import { useSupabase } from '@/hooks/useSupabase'
 
 const Dashboard = () => {
-    const { jewelry, getJewelry } = useSupabase()
+    const { jewelry, 
+            getJewelry, 
+            electronics, 
+            getElectronics,
+            womensClothing,
+            getWomensClothing,
+            clothing,
+            getClothing,
+        } = useSupabase()
     
     const categoryHeaders = [
-        { heading: "Best Sellers in Clothing", products: jewelry },
-        { heading: "Best Sellers in Electronics", products: jewelry },
+        { heading: "Best Sellers in Clothing", products: clothing },
+        { heading: "Best Sellers in Electronics", products: electronics },
         { heading: "Best Sellers in Jewelry", products: jewelry },
-        { heading: "Best Sellers in Women's Clothing", products: jewelry },
+        { heading: "Best Sellers in Women's Clothing", products: womensClothing},
     ]
 
     useEffect(()=> {
         getJewelry()
-    }, [getJewelry])
+        getElectronics()
+        getWomensClothing()
+        getClothing()
+    }, [
+        // jewelry, 
+        // electronics, 
+        // womensClothing,
+        // clothing
+    ])
 
   return (
     <Box sx={{display:'flex', flexDirection: "column"}}>
@@ -30,7 +46,8 @@ const Dashboard = () => {
             width={1150} 
             height={450} 
         />
-        <Box sx={{display: "flex", justifyContent: "space-between", transform: "translateY(-15rem)"}}>
+        <Box sx={{transform: "translateY(-15rem)"}} >
+        <Box sx={{display: "flex", justifyContent: "space-between"}}>
         {heroData.map((product)=>{
             return <SmallCard 
                      image={product.image} 
@@ -44,9 +61,11 @@ const Dashboard = () => {
             return  <WideCard 
                         key={category.heading}
                         products={category.products}
+                        heading={category.heading}
                         
                         />
         })}
+        </Box>
         </Box>
     </Box>
   )
