@@ -11,7 +11,10 @@ const QueryPage = () => {
 
   useEffect(()=> {
     getFilteredProducts(query.toString())
-  }, [getFilteredProducts, query])
+  }, 
+  // [getFilteredProducts, query]
+  [query]
+  )
 
   return (
     <Container>
