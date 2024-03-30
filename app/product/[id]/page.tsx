@@ -15,7 +15,9 @@ const ProductPage = () => {
     
     useEffect(()=> {
         getSingleProduct(Number(id))
-    }, [getSingleProduct, id])
+    }, [
+      // getSingleProduct, id
+    ])
 
   return (
     <Box sx={{backgroundColor: COLORS.white}}> 
